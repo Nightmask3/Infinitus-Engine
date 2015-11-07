@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{24D20B36-F8A6-4D9F-8F7E-F32C9A7237B8}</ProjectGuid>
+    <RootNamespace>SDL_Game_Engine</RootNamespace>
+    <ProjectName>Infinitus Engine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\Nightmask3\Documents\Visual Studio 2013\Projects\Infinitus v0.0.1\Dependencies\GLEW;C:\Users\Nightmask3\Documents\Visual Studio 2013\Projects\Infinitus v0.0.1\Source;C:\SOIL\Simple OpenGL Image Library\src;C:\SFML 2.3.2\include;C:\SDL\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Nightmask3\Documents\Visual Studio 2013\Projects\Infinitus v0.0.1\Dependencies\GLEW;C:\SOIL\Simple OpenGL Image Library\lib;C:\SFML 2.3.2\lib;C:\SDL\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Users\Nightmask3\Documents\Visual Studio 2013\Projects\Infinitus v0.0.1\Dependencies\GLEW;C:\SFML 2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;glew32s.lib;glu32.lib;SOIL.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\Nightmask3\Documents\Visual Studio 2013\Projects\Infinitus v0.0.1\Dependencies\GLEW;C:\SOIL\Simple OpenGL Image Library\lib;C:\SFML 2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\Component Library\Component.cpp" />
+    <ClCompile Include="Source\Component Library\PhysicsComponent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\Component Library\SpriteComponent.cpp" />
+    <ClCompile Include="Source\Component Library\TransformComponent.cpp" />
+    <ClCompile Include="Source\Entity Library\GameObject.cpp" />
+    <ClCompile Include="Source\Manager Library\FrameRateController.cpp" />
+    <ClCompile Include="Source\Manager Library\GameObjectFactory.cpp" />
+    <ClCompile Include="Source\Manager Library\GameStateManager.cpp" />
+    <ClCompile Include="Source\Manager Library\PhysicsManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\Manager Library\ResourceManager.cpp" />
+    <ClCompile Include="Source\OpenGLRenderer Library\OpenGLRenderer.cpp" />
+    <ClCompile Include="Source\SFML Library\SFMLEventManager.cpp" />
+    <ClCompile Include="Source\SFML Library\SFMLInputManager.cpp" />
+    <ClCompile Include="Source\SFML Library\SFMLWindowManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Component Library\Component.h" />
+    <ClInclude Include="Source\Component Library\PhysicsComponent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\Component Library\SpriteComponent.h" />
+    <ClInclude Include="Source\Component Library\TransformComponent.h" />
+    <ClInclude Include="Source\Entity Library\GameObject.h" />
+    <ClInclude Include="Source\Manager Library\GameObjectFactory.h" />
+    <ClInclude Include="Source\Manager Library\GameStateManager.h" />
+    <ClInclude Include="Source\Manager Library\PhysicsManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\Manager Library\ResourceManager.h" />
+    <ClInclude Include="Source\OpenGLRenderer Library\OpenGLRenderer.h" />
+    <ClInclude Include="Source\SFML Library\SFMLEventManager.h" />
+    <ClInclude Include="Source\SFML Library\SFMLInputManager.h" />
+    <ClInclude Include="Source\SFML Library\SFMLWindowManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="hello_world.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
