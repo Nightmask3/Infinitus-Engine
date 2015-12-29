@@ -135,7 +135,6 @@ void Engine::Load()
 	p = static_cast<PhysicsComponent *> (objectFactory->ObjectLibrary.back().GetComponent(Component::PHYSICS));	// Gets sprite component of game object
 	p->mIsPlayer = true;
 
-
 	PlayerController = static_cast<KeyboardControllerComponent *>(objectFactory->ObjectLibrary.back().GetComponent(Component::KBCONTROLLER));
 	/*---------------------------------------- OBJECT 2 - ENEMY 1--------------------------------------------*/
 	objectFactory->LoadObject("C:\\Users\\Nightmask3\\Documents\\Visual Studio 2013\\Projects\\Infinitus v0.0.1\\Source\\Game Object Library\\Sphere.txt");
@@ -145,15 +144,18 @@ void Engine::Load()
 	t3->Translate(15, 2, 7);
 	t3->Scale(0.99, 0.99, 0.99);
 
-	//objectFactory->CreateComponent<BehaviorComponent>();
-	//b1 = static_cast<BehaviorComponent *>(objectFactory->ObjectLibrary.back().GetComponent(Component::BEHAVIOR));
+	objectFactory->CreateComponent<BehaviorComponent>();
+	b1 = static_cast<BehaviorComponent *>(objectFactory->ObjectLibrary.back().GetComponent(Component::BEHAVIOR));
 	/*---------------------------------------- OBJECT 3 - ENEMY 2 --------------------------------------------*/
 	objectFactory->LoadObject("C:\\Users\\Nightmask3\\Documents\\Visual Studio 2013\\Projects\\Infinitus v0.0.1\\Source\\Game Object Library\\Sphere.txt");
 
 	TransformComponent * t4;
 	t4 = static_cast<TransformComponent *>(objectFactory->ObjectLibrary.back().GetComponent(Component::TRANSFORM));
-	t4->Translate(14, 4, 7);
+	t4->Translate(14, 2, 12);
 	t4->Scale(0.99, 0.99, 0.99);
+
+	objectFactory->CreateComponent<BehaviorComponent>();
+	b2 = static_cast<BehaviorComponent *>(objectFactory->ObjectLibrary.back().GetComponent(Component::BEHAVIOR));
 	/*---------------------------------------- OBJECT 3 - FLOOR PLANE --------------------------------------------*/
 	objectFactory->CreateGameObject();
 
@@ -193,7 +195,8 @@ void Engine::Update()
 		physicsManager->Update();
 		if (physicsManager->mGameOver)
 			graphicsManager->mLoseScreen = true;
-		//b1->Update();
+		b1->Update();
+		b2->Update();
 		graphicsManager->Render();
 		windowManager->GetWin().display(); // Swap buffers
 		inputManager->UpdateInputState();  // Handles the input for this frame TODO : Operators for combinations of keys

@@ -50,6 +50,7 @@ private:
 	KeyboardControllerComponent * PlayerController;
 	// ENEMY MANAGERS (FOR THE TIME BEING, DIRECTLY USING THEIR BEHAVIOR COMPONENTS)
 	BehaviorComponent * b1;
+	BehaviorComponent * b2;
 public:
 	Engine();
 	virtual ~Engine();

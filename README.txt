@@ -31,11 +31,9 @@
 		o Sphere vs AABB
 · Game Requirements
 	o Human player control of a ship, avatar, or character
-	o Game runs at 30 fps most of the time. 
-	o At least 2 different types of enemies with different 	behaviors.
-		o LEFT - RIGHT
-		o UP - DOWN
+	o Locked at 60 fps
 o Collision between player and enemies
+	Enemies have behavior component of LEFT - RIGHT movement
 o In-game controls screen 
 	o Press M to see controls
 o Game must have a win / lose condition.
