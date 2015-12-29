@@ -16,15 +16,15 @@
 · Frame rate Controller
 	o Locked at 60	
 · Input
-	o Input Manager providing keyboard and mouse key and 	button “IsPressed”, “IsTriggered” and “IsReleased” 	detection.
+	o Input Manager providing keyboard and mouse button “IsPressed”, “IsTriggered” and “IsReleased” detection.
 · Graphics
-	o Hardware accelerated sprite rendering (textured quads 	in OpenGL)
-	o Basic Sprite transformation (Translation, Rotation, and 	Scale).
+	o Hardware accelerated sprite rendering (textured quads in OpenGL)
+	o Basic Sprite transformation (Translation, Rotation, and Scale).
 	o Movement translates the player for instance
 	o Compatability for drawing with Element Buffer Arrays	(i.e. Indexed drawing)
 · Physics
 	o Basic collision detection between circles.
-	o Basic Collision response (bouncing etc). 
+	o Basic Collision response. 
 	o Collision between different bodies types
 		o Sphere vs plane
 		o Sphere vs Sphere
