@@ -1,7 +1,5 @@
 #include "SFMLInputManager.h"
-#include "SFMLEventManager.h"
-#include <iostream>
-#include <stdio.h>
+
 SFMLInputManager::SFMLInputManager(SFMLWindowManager &windowManager)
 {
 	for (int i = 0; i < sf::Keyboard::KeyCount + 1; i++) // Initializes the value of keyboard state map to 0 when input manager is created
@@ -30,6 +28,7 @@ void SFMLInputManager::ReceiveEvent(SFMLEventManager &EventMan)		// Performs the
 
 void SFMLInputManager::UpdateInputState()			// Updates the state of input devices
 {
+	
 	sf::Keyboard::Key key;							// Used to check the input state of each keyboard key
 	for (int i = 0; i < sf::Keyboard::KeyCount; ++i)
 	{
@@ -62,10 +61,22 @@ bool SFMLInputManager::isKeyPressed(sf::Keyboard::Key key)
 
 bool SFMLInputManager::isKeyTriggered(sf::Keyboard::Key key)
 {
-	return  keyboardStateCurr[key] && !keyboardStatePrev[key];	// True in current frame but not in previous frame
+	return  keyboardStateCurr[key] && !keyboardStatePrev[key];		// True in current frame but not in previous frame
 }
 
 bool SFMLInputManager::isKeyReleased(sf::Keyboard::Key key)
 {
-	return  !keyboardStateCurr[key] && keyboardStatePrev[key]; 	// When key is not pressed in this frame but pressed in previous frame return true
+	return  !keyboardStateCurr[key] && keyboardStatePrev[key]; 		// When key is not pressed in this frame but pressed in previous frame return true
+}
+
+bool SFMLInputManager::isMouseButtonPressed(sf::Mouse::Button mbutton)	// Returns true or false based on whether this mouse button is pressed currently
+{
+	return sf::Mouse::isButtonPressed(mbutton);
+}
+Vector3D SFMLInputManager::GetMousePosition()						// Returns mouse position relative to window
+{
+	sf::Vector2i temp = sf::Mouse::getPosition(owningWinMan->GetWin());
+	Vector3D temp1(temp.x, temp.y, 0, 1);
+	std::cout << "Mouse Position X :" << temp1.x << "\tMouse Position Y :" << temp1.y << "\r";;
+	return temp1;
 }

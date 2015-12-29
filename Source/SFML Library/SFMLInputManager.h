@@ -1,15 +1,19 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
-
+// C++ HEADERFILES
+#include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <functional>
-#include <SFML\Window.hpp>
-#include <SFML\Graphics.hpp>
+
+// SFML HEADERFILES
 #include <SFML\Window\Keyboard.hpp>
+// MATH LIBRARY HEADER FILE
+#include "..\Math Library\Vector3D.h"
+// MANAGER HEADER FILES
 #include "SFMLEventManager.h"
 #include "SFMLWindowManager.h"
-#include <xstddef>
+// COMPONENT HEADER FILES
+#include "..\Component Library\Component.h"
+#include "..\..\Dependencies\GLEW\glew.h"
 
 enum InputEventType
 {
@@ -27,7 +31,9 @@ class SFMLInputManager
 	public:
 		SFMLInputManager(SFMLWindowManager &windowManager);
 		~SFMLInputManager();
-
+		// MOUSE HANDLING STUFF
+		bool isMouseButtonPressed(sf::Mouse::Button);
+		Vector3D GetMousePosition();
 		// INPUT DEVICE UPDATION STUFF
 		void UpdateInputState();
 		// EVENT HANDLING STUFF
@@ -36,15 +42,14 @@ class SFMLInputManager
 		bool isKeyPressed(sf::Keyboard::Key);					
 		bool isKeyReleased(sf::Keyboard::Key);
 		bool isKeyTriggered(sf::Keyboard::Key);
-		
+		// ARRAY OF CONTROLLER COMPONENTS
+		std::vector<Component *> ControllerList;
+
 	private:
-		//std::unordered_map<int, bool> keyboardStatePrev;	// Holds the state of all the keyboard keys in the previous frame
-		//std::unordered_map<int, bool> keyboardStateCurr;	// Holds the state of all the keyboard keys in the current frame
 		bool keyboardStatePrev[sf::Keyboard::KeyCount] ;	// Holds the state of all the keyboard keys in the previous frame
 		bool keyboardStateCurr[sf::Keyboard::KeyCount];		// Holds the state of all the keyboard keys in the current frame
-		sf::Keyboard::Key mKey;								// Holds the keyboard key that triggered the event being handled
-		sf::Mouse::Button mButton;							// Holds the mouse button that triggered the event being handled
 		SFMLWindowManager * owningWinMan;					// Holds the window manager to have the ability to close window through input
+	
 };
 
 #endif

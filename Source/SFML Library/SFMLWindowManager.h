@@ -3,9 +3,7 @@
 
 // WOULD BECOME PART OF THE RENDERER DLL LATER ON (?)
 #include <SFML\Window.hpp>
-#include <SFML\OpenGL.hpp>
 #include <SFML\Window\VideoMode.hpp>
-#include <SFML\Graphics.hpp>
 
 class SFMLWindowManager
 {

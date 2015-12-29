@@ -25,14 +25,14 @@ void SFMLEventManager::SetEventType()									// Used for clarity in the input h
 		mType = Input;
 }
 
-EventType SFMLEventManager::GetEventType()
+SFMLEventType SFMLEventManager::GetEventType()
 {
 	return mType;
 }
 
 void SFMLEventManager::HandleEvent()
 {
-	//if (mType == Input)					// If an input event, call the input event handler
+	//if (mType == Input)					// If an input event, call the input event handler, TODO: Change later when other type of events
 		HandleInputEvent();
 }
 

@@ -1,0 +1,29 @@
+Sprite Component
+Sphere
+2.5f
+-
+Transform Component
+{
+Position
+2.0f, 4.0f, 0.0f
+Rotation
+0.0f, 0.0f, 0.0f
+Scale
+0.99f, 0.99f, 0.99f
+}
+-
+Physics Component
+{
+Velocity
+0.0f, 0.0f, 0.0f
+Momentum
+0.0f, 0.0f, 0.0f
+Force
+0.0f, 0.0f, 0.0f
+Mass
+1.0f
+Collider
+0
+}
+-
+Keyboard Controller Component
